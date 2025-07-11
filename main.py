@@ -12,20 +12,15 @@ def main():
     player = Player(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2)
     dt = 0
 
-
     while True:
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 return
         screen.fill((0, 0, 0))  # Fill the screen with black
+        player.update(dt)
         player.draw(screen)
         pygame.display.flip()
-        clock.tick(60)
-        dt = clock.tick() / 1000.0  # Convert milliseconds to seconds
-    
- 
-    
-
+        dt = clock.tick(60) / 1000.0  # Convert milliseconds to seconds
 
 if __name__ == "__main__":
     main()
